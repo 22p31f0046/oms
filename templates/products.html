@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOPE MEDICALS</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a basic font style */
+        body {
+            background-image: url("https://images.pexels.com/photos/7615616/pexels-photo-7615616.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5em;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Product card styles */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 1.3em;
+            font-style:oblique;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;         
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PRODUCTS PAGE</h1>
+    </header>
+
+    <nav>
+        <ul align="left">
+            <li><a href="addorders.html">Order here</a></li>
+        </ul>
+    </nav>
+
+    <div class="product-container">
+        <!-- Loop through data using Django template tags -->
+        {% for i in data %}
+            <div class="product-card">
+                <div class="product-title">{{ i.title }}</div>
+                <div class="product-info">
+                    <p><b>Usage: {{ i.usage }}</b></p>
+                    <p><b>Price: {{ i.price }}</b></p>
+                    <p><b>Rating: {{ i.rating }}</b></p>
+                    <p><b>Tag: {{ i.tag }}</b></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <p align="left"><h2>To check your orders please click here ...</h2>
+        <button onclick="window.location.href='http://127.0.0.1:8000/orders'">ORDERS</button>
+    </p>
+</body>
+</html>

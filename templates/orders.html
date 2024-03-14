@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOPE MEDICALS</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a basic font style */
+        body {
+            background-image: url("https://images.pexels.com/photos/7615411/pexels-photo-7615411.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Product card styles */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ORDERS PAGE</h1>
+    </header>
+
+    <div class="product-container">
+        <!-- Loop through data using Django template tags -->
+        {% for i in data %}
+            <div class="product-card">
+                <div class="product-title">{{ i.product.title }}</div>
+                <div class="product-info">
+                    <p>Usage: {{ i.product.usage }}</p>
+                    <p>Price: {{ i.product.price }}</p>
+                    <p>Rating: {{ i.product.rating }}</p>
+                    <p>Tag: {{ i.product.tag }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
